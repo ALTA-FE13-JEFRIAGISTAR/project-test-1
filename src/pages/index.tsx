@@ -15,10 +15,8 @@ interface DataType {
 }
 
 const Home: FC = () => {
-  const MySwal = withReactContent(Swal);
-
   const [datas, setDatas] = useState<DataType[]>([]);
-
+  const MySwal = withReactContent(Swal);
   const [objSubmit, setObjSubmit] = useState<DataType>({
     id: "",
     content: "",
@@ -71,7 +69,7 @@ const Home: FC = () => {
       .then(function (response) {
         setDatas(response.data);
       })
-      .catch(function (error) { });
+      .catch((error) => { });
   }
 
   function handleComplete(param: string) {
@@ -108,7 +106,7 @@ const Home: FC = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(function (response) {
+      .then((response) => {
         const { data } = response.data;
         MySwal.fire({
           title: "Success",
@@ -116,7 +114,7 @@ const Home: FC = () => {
           showCancelButton: false,
         });
       })
-      .catch(function (error) {
+      .catch((error) => {
         const { data } = error.response;
         MySwal.fire({
           title: "Failed",

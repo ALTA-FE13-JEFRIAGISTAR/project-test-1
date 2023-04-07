@@ -38,7 +38,7 @@ const Detail: FC = () => {
       .then(function (response) {
         setData(response.data);
       })
-      .catch(function (error) { });
+      .catch((error) => { });
   }
 
   function handleChange(value: string, key: keyof typeof objSubmit) {
@@ -84,6 +84,11 @@ const Detail: FC = () => {
     <Layout>
       <div className="hero min-h-screen bg-base-200 bg-black">
         <div className="hero-content text-center bg-pink-600">
+          <button
+            className="btn btn-sm btn-circle"
+          >
+            <Link to='/'>&lt;</Link>
+          </button>
           <div className="max-w-md">
             <h1 className="text-5xl font-bold mt-10">{data?.content}</h1>
             <p className="py-6">{data?.description}</p>
@@ -94,12 +99,6 @@ const Detail: FC = () => {
             >
               Edit
             </label>
-            <Link
-              to={"/"}
-              className="btn  bg-black text-pink-600  border-white hover:bg-black hover:border-red-600 hover:text-white btn-xs sm:btn-sm md:btn-md lg:btn-md btn-wide self-center mt-10"
-            >
-              Back
-            </Link>
           </div>
         </div>
       </div>
